@@ -9,15 +9,38 @@ using Microsoft.AspNetCore;
 namespace CheeseMVC
 {
     public class Program
+
     {
+
         public static void Main(string[] args)
+
         {
-            BuildWebHost(args).Run();
+
+            var host = BuildWebHost(args);
+
+
+
+            host.Run();
+
         }
 
+
+
+        // Tools will use this to get application services
+
         public static IWebHost BuildWebHost(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
+
+            new WebHostBuilder()
+
+                .UseKestrel()
+
+                .UseContentRoot(Directory.GetCurrentDirectory())
+
+                .UseIISIntegration()
+
                 .UseStartup<Startup>()
+
                 .Build();
+
     }
 }
