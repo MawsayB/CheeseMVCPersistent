@@ -17,15 +17,9 @@ namespace CheeseMVC
         {
 
             var host = BuildWebHost(args);
-
-
-
             host.Run();
 
         }
-
-
-
         // Tools will use this to get application services
 
         public static IWebHost BuildWebHost(string[] args) =>
