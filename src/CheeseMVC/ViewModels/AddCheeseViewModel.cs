@@ -35,10 +35,10 @@ namespace CheeseMVC.ViewModels
 
             }
 
-        public AddCheeseViewModel()
-            {
+        //public AddCheeseViewModel()
+            //{
 
-            }
+            //}
 
         }
     }
