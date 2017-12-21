@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using CheeseMVC.Data;
 using CheeseMVC.Models;
+using CheeseMVC.ViewModels;
 
 namespace CheeseMVC.Controllers
 {
@@ -21,6 +22,13 @@ namespace CheeseMVC.Controllers
         {
             IList<CheeseMenu> cheeseMenu = context.CheeseMenus.ToList();
             return View(cheeseMenu);
+        }
+
+        [HttpGet]
+        public IActionResult Add()
+        {
+            AddMenuViewModel addMenuViewModel = new AddMenuViewModel();
+            return View(addMenuViewModel);
         }
     }
 }
