@@ -24,7 +24,6 @@ namespace CheeseMVC.Controllers
             return View(cheeseMenu);
         }
 
-        [HttpGet]
         public IActionResult Add()
         {
             AddMenuViewModel addMenuViewModel = new AddMenuViewModel();

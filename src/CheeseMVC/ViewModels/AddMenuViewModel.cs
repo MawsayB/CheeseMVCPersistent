@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CheeseMVC.ViewModels
 {
-    public class Class
+    public class AddMenuViewModel
     {
         [Required]
         [Display(Name = "Menu Name")]
