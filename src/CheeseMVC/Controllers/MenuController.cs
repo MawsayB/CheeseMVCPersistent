@@ -31,17 +31,18 @@ namespace CheeseMVC.Controllers
         }
 
         [HttpPost]
-        public IActionResult Add(AddMenuViewModel)
+        public IActionResult Add(AddMenuViewModel addMenuViewModel)
         {
             if (ModelState.IsValid)
             {
-                // Add the new category to my existing cheeses
-                CheeseCategory newCheeseCategory = new CheeseCategory
+                // Add the new menu to my existing menu
+                Menu newMenu = new Menu
+
                 {
-                    newMenu = addMenuViewModel.Name,
+                    Name = addMenuViewModel.Name
                 };
 
-                context.Menus.Add(newAddMenuViewModel);
+                context.Menus.Add(newMenu);
                 context.SaveChanges();
 
                 return Redirect("/Menu/ViewMenu/" + newMenu.ID);
@@ -63,7 +64,7 @@ namespace CheeseMVC.Controllers
                     .ToList();
             }
 
-            return View(ViewMenuViewModel);
+            return View(AddMenuViewModel);
         }
     }
 }
