@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using CheeseMVC.Data;
 using CheeseMVC.Models;
 using CheeseMVC.ViewModels;
+using Microsoft.EntityFrameworkCore;
 
 namespace CheeseMVC.Controllers
 {
@@ -54,17 +55,22 @@ namespace CheeseMVC.Controllers
         [HttpGet]
         public IActionResult ViewMenu(int id)
         {
-            ViewMenu newViewMenu menu = context.DbSet.Single(m => m.ID == addMenuViewModel.MenuID);
+            
+            List<CheeseMenu> items = context
+                .CheeseMenus
+                .Include(item => item.Cheese)
+                .Where(cm => cm.MenuID == id)
+                .ToList();
+            
+            Menu menu = context.Menus.Single(m => m.ID == id);
 
+            ViewMenuViewModel viewModel = new ViewMenuViewModel
             {
-                List<CheeseMenu> items = context
-                    .CheeseMenus
-                    .Include(item => item.Cheese)
-                    .Where(cm => cm.MenuID == id)
-                    .ToList();
-            }
+                Menu = menu.Name,
+                Items = items
+            };
 
-            return View(AddMenuViewModel);
+            return View(viewModel);
         }
     }
 }
