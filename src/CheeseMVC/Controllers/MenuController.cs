@@ -50,5 +50,21 @@ namespace CheeseMVC.Controllers
 
             return View(addMenuViewModel);
         }
+
+        [HttpGet]
+        public IActionResult ViewMenu(int id)
+        {
+            ViewMenu newViewMenu menu = context.DbSet.Single(m => m.ID == addMenuViewModel.MenuID);
+
+            {
+                List<CheeseMenu> items = context
+                    .CheeseMenus
+                    .Include(item => item.Cheese)
+                    .Where(cm => cm.MenuID == id)
+                    .ToList();
+            }
+
+            return View(ViewMenuViewModel);
+        }
     }
 }
