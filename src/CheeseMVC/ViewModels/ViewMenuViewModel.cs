@@ -12,7 +12,7 @@ namespace CheeseMVC.ViewModels
 
         [Required]
         [Display(Name = "Menu")]
-        public string Menu { get; set; }
+        public Menu Menu { get; set; }
 
         public IList<CheeseMenu> Items { get; set; }
 
