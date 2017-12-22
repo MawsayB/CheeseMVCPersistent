@@ -1,4 +1,4 @@
-﻿@model IEnumerable<CheeseMVC.Models.CheeseMenu>
+﻿@model IEnumerable<CheeseMVC.Models.Menu>
 <br />
 <h2>Menus</h2>
 
@@ -7,8 +7,13 @@
     <ul>
         <a asp-controller="Menu"
         asp-action="ViewMenu"
-        asp-route-id="@menu.MenuID">@menu.Menu</a>
+        asp-route-id="@menu.ID">@menu.Name</a>
     </ul>
+}
+
+@if (Model.Count() == 0)
+{
+    <p>Add a Menu to Get Started</p>
 }
 
 <p><a asp-controller="Menu" asp-action="Add">Add Menu</a></p>
