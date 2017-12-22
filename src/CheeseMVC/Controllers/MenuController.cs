@@ -66,7 +66,7 @@ namespace CheeseMVC.Controllers
 
             ViewMenuViewModel viewModel = new ViewMenuViewModel
             {
-                Menu = menu.Name,
+                Menu = menu,
                 Items = items
             };
 
