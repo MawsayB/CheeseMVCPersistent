@@ -24,11 +24,14 @@ namespace CheeseMVC.ViewModels
             Cheeses = new List<SelectListItem>();
             Menu = menu;
 
-            Cheeses.Add(new SelectListItem
+            foreach (var cheese in cheeses)
             {
-                Value = cheese.ID.ToString(),
-                Text = cheese.Name
-            });
+                Cheeses.Add(new SelectListItem
+                {
+                    Value = cheese.ID.ToString(),
+                    Text = cheese.Name
+                });
+            }
 
         }
     }
